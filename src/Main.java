@@ -12,9 +12,22 @@ public class Main {
         c = in.nextInt();
 
         String valueInt = "";
-        if (a % 5 == 0) valueInt = "a=" + a + ", ";
-        if (b % 5 == 0) valueInt += "b=" + b + ", ";
-        if (c % 5 == 0) valueInt += "c=" + c;
+        if (a % 5 == 0) {
+            valueInt = "a=" + a;
+            if (b % 5 == 0) {
+                valueInt += ", b=" + b;
+                if (c % 5 == 0) valueInt += ", c=" + c;
+            }
+            else if (c % 5 == 0) valueInt += ", c=" + c;
+        }
+         else {
+            if (b % 5 == 0) {
+                valueInt += "b=" + b;
+                if (c % 5 == 0) valueInt += ", c=" + c;
+            }
+            else if (c % 5 == 0) valueInt += "c=" + c;
+        }
+
         if (valueInt.isEmpty()) System.out.println("нет значений, кратных 5");
         else System.out.println(valueInt);
 
